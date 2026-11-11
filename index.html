@@ -5,54 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EDURESERVA — Escuela Técnica N.º 29</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="escudo.png" />
+  <link rel="icon" type="image/svg+xml" href="escudo.svg" />
 </head>
 <body>
-  <div id="app">
-    <!-- Pantalla de login -->
-    <section id="login-view" class="view active">
-      <div class="login-card">
-        <img src="escudo.png" alt="Escudo Escuela Técnica 29" class="escudo" />
-        <h1>EDURESERVA</h1>
-        <p class="subtitle">Reserva de espacios escolares</p>
-        <form id="login-form">
-          <label>
-            Correo
-            <input type="email" id="email" required placeholder="profe@escuela.edu" autocomplete="username" />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" id="password" required placeholder="••••••" autocomplete="current-password" />
-          </label>
-          <button type="submit" class="btn primary">Ingresar</button>
-          <p id="login-error" class="error" hidden></p>
-        </form>
+  <!-- Vista de autenticación -->
+  <section id="vista-auth" class="view active">
+    <div class="login-card">
+      <img src="escudo.svg" alt="Escudo Escuela Técnica 29" class="escudo" />
+      <h1>EDURESERVA</h1>
+      <p class="subtitle">Reserva de espacios escolares</p>
+      <form id="form-login">
+        <label>
+          Correo
+          <input type="email" id="email" required placeholder="profe@escuela.edu" autocomplete="username" />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" id="password" required placeholder="••••••" autocomplete="current-password" />
+        </label>
+        <button type="submit" class="btn primary">Ingresar</button>
+        <p id="login-error" class="error" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Vista principal de la aplicación -->
+  <section id="vista-app" class="view">
+    <header class="topbar">
+      <div class="brand">
+        <img src="escudo.svg" alt="" class="escudo-sm" />
+        <span>EDURESERVA</span>
       </div>
-    </section>
+      <div class="user-info">
+        <span id="header-user"></span>
+        <span id="header-rol" class="badge"></span>
+        <button id="btn-logout" class="btn ghost">Salir</button>
+      </div>
+    </header>
 
-    <!-- Panel principal (después del login) -->
-    <section id="main-view" class="view">
-      <header class="topbar">
-        <div class="brand">
-          <img src="escudo.png" alt="" class="escudo-sm" />
-          <span>EDURESERVA</span>
-        </div>
-        <div class="user-info">
-          <span id="user-name"></span>
-          <span id="user-rol" class="badge"></span>
-          <button id="btn-logout" class="btn ghost">Salir</button>
-        </div>
-      </header>
+    <nav class="tabs" id="tabs">
+      <!-- Se llenan según el rol -->
+    </nav>
 
-      <nav class="tabs" id="tabs">
-        <!-- Se llenan según el rol -->
-      </nav>
+    <main id="panel" class="panel">
+      <!-- Contenido dinámico -->
+    </main>
 
-      <main id="panel" class="panel">
-        <!-- Contenido dinámico -->
-      </main>
-    </section>
-  </div>
+    <footer class="site-footer">
+      <p>EDURESERVA · Consulta y reserva de espacios escolares · Axel Chambi & Steven Gutierrez</p>
+    </footer>
+  </section>
 
   <script src="script.js"></script>
 </body>

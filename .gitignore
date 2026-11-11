@@ -1,0 +1,14 @@
+# Entorno virtual y dependencias locales
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Base de datos generada al iniciar Flask (no versionar datos de prueba locales)
+edureserva.db
+
+# Secretos y archivos del sistema
+.env
+.env.*
+.DS_Store
+Thumbs.db

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 148" role="img" aria-label="Escudo EDURESERVA">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5EC8F2"/>
+      <stop offset="100%" stop-color="#0077B6"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 8 L118 28 V78 C118 112 90 136 64 144 C38 136 10 112 10 78 V28 Z" fill="url(#g)" stroke="#ffffff" stroke-width="4"/>
+  <path d="M64 22 L104 38 V76 C104 102 82 122 64 128 C46 122 24 102 24 76 V38 Z" fill="#EBF8FF" opacity=".2"/>
+  <circle cx="64" cy="62" r="22" fill="#ffffff"/>
+  <text x="64" y="70" text-anchor="middle" font-family="Segoe UI, Arial" font-size="22" font-weight="700" fill="#0077B6">ER</text>
+  <text x="64" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="700" fill="#ffffff">EDURESERVA</text>
+</svg>

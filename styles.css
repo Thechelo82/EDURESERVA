@@ -1,0 +1,327 @@
+/* =============================================================================
+   EDURESERVA — hoja de estilos
+   Paleta escolar: celeste, blanco y texto oscuro. Sombras suaves + animaciones.
+   ============================================================================= */
+
+:root {
+  --celeste: #5ec8f2;
+  --celeste-oscuro: #0077b6;
+  --celeste-claro: #ebf8ff;
+  --blanco: #ffffff;
+  --texto: #1a2b3c;
+  --texto-suave: #5a6a7a;
+  --borde: #d0e8f5;
+  --ok: #2e9e5b;
+  --danger: #c0392b;
+  --sombra: 0 8px 24px rgba(0, 119, 182, 0.12);
+  --radio: 12px;
+  --fuente: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuente);
+  color: var(--texto);
+  background: linear-gradient(160deg, #f0f9ff 0%, #e6f4fb 40%, #f7fbfe 100%);
+  min-height: 100vh;
+}
+
+.view {
+  display: none;
+}
+.view.active {
+  display: block;
+}
+
+/* Login */
+#login-view, #vista-auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.login-card {
+  background: var(--blanco);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+  padding: 2.2rem 2rem;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.escudo {
+  width: 72px;
+  height: auto;
+  margin-bottom: 0.8rem;
+}
+
+.login-card h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+  color: var(--celeste-oscuro);
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+  color: var(--texto-suave);
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.7rem 0.85rem;
+  border: 1.5px solid var(--borde);
+  border-radius: 10px;
+  font: inherit;
+  background: #fafcfe;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--celeste);
+  box-shadow: 0 0 0 3px rgba(94, 200, 242, 0.25);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--celeste) 0%, var(--celeste-oscuro) 100%);
+  color: white;
+  width: 100%;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 119, 182, 0.3);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 6px 18px rgba(0, 119, 182, 0.4);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--celeste-oscuro);
+  border: 1.5px solid var(--borde);
+}
+
+.btn.small {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.btn.ok {
+  background: var(--ok);
+  color: white;
+}
+
+.btn.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+}
+
+.mensaje {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+}
+.mensaje.ok { color: var(--ok); }
+.mensaje.error { color: var(--danger); }
+
+/* App layout */
+.topbar, .site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--borde);
+  box-shadow: 0 2px 10px rgba(0, 80, 120, 0.06);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  color: var(--celeste-oscuro);
+}
+
+.escudo-sm {
+  width: 36px;
+  height: auto;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: var(--celeste-claro);
+  color: var(--celeste-oscuro);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.8rem 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 10px 10px 0 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+.tab.active {
+  background: var(--blanco);
+  color: var(--celeste-oscuro);
+  box-shadow: 0 -2px 8px rgba(0, 80, 120, 0.06);
+}
+
+.panel, main.panel {
+  margin: 0 1.5rem 2rem;
+  padding: 1.5rem;
+  background: var(--blanco);
+  border-radius: 0 16px 16px 16px;
+  box-shadow: var(--sombra);
+  min-height: 280px;
+}
+
+.form-card {
+  max-width: 420px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th, td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borde);
+}
+
+th {
+  font-weight: 600;
+  color: var(--texto-suave);
+  background: var(--celeste-claro);
+}
+
+.estado {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.estado.pendiente { background: #fff3cd; color: #856404; }
+.estado.aprobada { background: #d4edda; color: #155724; }
+.estado.rechazada { background: #f8d7da; color: #721c24; }
+
+.acciones {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.cargando {
+  color: var(--texto-suave);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.2rem;
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .panel, main.panel {
+    margin: 0 0.75rem 1.5rem;
+    padding: 1.1rem;
+    border-radius: 12px;
+  }
+
+  .tabs {
+    padding: 0.6rem 0.75rem 0;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar, .site-header {
+    padding: 0.8rem 4vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+}

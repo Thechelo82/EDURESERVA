@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDURESERVA — Escuela Técnica N.º 29</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="escudo.png" />
+</head>
+<body>
+  <div id="app">
+    <!-- Pantalla de login -->
+    <section id="login-view" class="view active">
+      <div class="login-card">
+        <img src="escudo.png" alt="Escudo Escuela Técnica 29" class="escudo" />
+        <h1>EDURESERVA</h1>
+        <p class="subtitle">Reserva de espacios escolares</p>
+        <form id="login-form">
+          <label>
+            Correo
+            <input type="email" id="email" required placeholder="profe@escuela.edu" autocomplete="username" />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" id="password" required placeholder="••••••" autocomplete="current-password" />
+          </label>
+          <button type="submit" class="btn primary">Ingresar</button>
+          <p id="login-error" class="error" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Panel principal (después del login) -->
+    <section id="main-view" class="view">
+      <header class="topbar">
+        <div class="brand">
+          <img src="escudo.png" alt="" class="escudo-sm" />
+          <span>EDURESERVA</span>
+        </div>
+        <div class="user-info">
+          <span id="user-name"></span>
+          <span id="user-rol" class="badge"></span>
+          <button id="btn-logout" class="btn ghost">Salir</button>
+        </div>
+      </header>
+
+      <nav class="tabs" id="tabs">
+        <!-- Se llenan según el rol -->
+      </nav>
+
+      <main id="panel" class="panel">
+        <!-- Contenido dinámico -->
+      </main>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

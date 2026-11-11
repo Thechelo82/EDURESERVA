@@ -62,7 +62,6 @@ def rpc(funcion: str, payload: dict) -> dict:
             cuerpo = resp.read().decode("utf-8") or "{}"
             data = json.loads(cuerpo)
             if isinstance(data, list):
-                # Algunas RPC devuelven array de un elemento
                 data = data[0] if data else {}
             return data if isinstance(data, dict) else {"ok": False, "error": "Respuesta inesperada"}
     except urllib.error.HTTPError as e:
@@ -88,8 +87,8 @@ def responder(data: dict, ok_status: int = 200):
     return jsonify(data), codigo
 
 
-def token_actual() -> str | None:
-    return session.get("token")
+def token_actual() -> str:
+    return str(session.get("token") or "")
 
 
 # ---------------------------------------------------------------------------
@@ -117,14 +116,20 @@ def api_login():
     })
     if not data.get("ok"):
         return responder(data)
+    usuario = {
+        "token": data.get("token"),
+        "rol": data.get("rol"),
+        "nombre": data.get("nombre"),
+        "email": datos.get("email"),
+    }
     session["token"] = data.get("token")
-    session["rol"] = data.get("rol")
-    session["nombre"] = data.get("nombre")
+    session["usuario"] = usuario
     return jsonify({
         "ok": True,
         "token": data.get("token"),
         "rol": data.get("rol"),
         "nombre": data.get("nombre"),
+        "email": datos.get("email"),
     })
 
 
@@ -132,6 +137,15 @@ def api_login():
 def api_logout():
     session.clear()
     return jsonify({"ok": True})
+
+
+@app.get("/api/sesion")
+def api_sesion():
+    """Recupera el usuario guardado en la cookie de Flask."""
+    usuario = session.get("usuario")
+    if not usuario or not token_actual():
+        return jsonify({"ok": True, "autenticado": False})
+    return jsonify({"ok": True, "autenticado": True, "usuario": usuario})
 
 
 @app.get("/api/yo")
@@ -153,6 +167,11 @@ def api_aulas():
     if not data.get("ok"):
         return responder(data)
     return jsonify({"ok": True, "aulas": data.get("aulas", []), "modulos": MODULOS_HORARIO})
+
+
+@app.get("/api/modulos")
+def api_modulos():
+    return jsonify({"ok": True, "modulos": MODULOS_HORARIO})
 
 
 # ---------------------------------------------------------------------------
